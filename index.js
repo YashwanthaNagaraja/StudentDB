@@ -27,9 +27,9 @@ function readFormData() {
     var formData = {};
     // Get Values From  Input
     formData["userName"] = document.getElementById("userName").value;
-    formData["rollNo"] = document.getElementById("rollNo").value;
-    formData["stdClass"] = document.getElementById("stdClass").value;
-    formData["tsub"] = document.getElementById("tsub").value;
+    formData["Branch/Area"] = document.getElementById("area").value;
+    formData["Course"] = document.getElementById("course").value;
+    formData["yop"] = document.getElementById("yop").value;
     formData["age"] = document.getElementById("age").value;
     // return Form Data
     return formData;
@@ -41,11 +41,11 @@ function insertNewRecord(data) {
     cell1 = newRow.insertCell(0);
     cell1.innerHTML = data.userName;
     cell2 = newRow.insertCell(1);
-    cell2.innerHTML = data.rollNo;
+    cell2.innerHTML = data.area;
     cell3 = newRow.insertCell(2);
-    cell3.innerHTML = data.stdClass;
+    cell3.innerHTML = data.course;
     cell4 = newRow.insertCell(3);
-    cell4.innerHTML = data.tsub;
+    cell4.innerHTML = data.yop;
     cell5 = newRow.insertCell(4);
     cell5.innerHTML = data.age;
     cell5 = newRow.insertCell(5);
@@ -55,9 +55,9 @@ function insertNewRecord(data) {
 // Reset Function
 function resetForm() {
     document.getElementById("userName").value = "";
-    document.getElementById("rollNo").value = "";
-    document.getElementById("stdClass").value = "";
-    document.getElementById("tsub").value = "";
+    document.getElementById("area").value = "";
+    document.getElementById("course").value = "";
+    document.getElementById("yop").value = "";
     document.getElementById("age").value = "";
     selectedRow = null;
 }
@@ -65,17 +65,17 @@ function resetForm() {
 function onEdit(td) {
     selectedRow = td.parentElement.parentElement;
     document.getElementById("userName").value = selectedRow.cells[0].innerHTML;
-    document.getElementById("rollNo").value = selectedRow.cells[1].innerHTML;
-    document.getElementById("stdClass").value = selectedRow.cells[2].innerHTML;
-    document.getElementById("tsub").value = selectedRow.cells[3].innerHTML;
+    document.getElementById("area").value = selectedRow.cells[1].innerHTML;
+    document.getElementById("course").value = selectedRow.cells[2].innerHTML;
+    document.getElementById("yop").value = selectedRow.cells[3].innerHTML;
     document.getElementById("age").value = selectedRow.cells[4].innerHTML;
 }
 // Update Record
 function updateRecord(formData) {
     selectedRow.cells[0].innerHTML = formData.userName;
-    selectedRow.cells[1].innerHTML = formData.rollNo;
-    selectedRow.cells[2].innerHTML = formData.stdClass;
-    selectedRow.cells[3].innerHTML = formData.tsub;
+    selectedRow.cells[1].innerHTML = formData.area;
+    selectedRow.cells[2].innerHTML = formData.course;
+    selectedRow.cells[3].innerHTML = formData.yop;
     selectedRow.cells[4].innerHTML = formData.age;
 }
 // Delete Function
@@ -101,7 +101,7 @@ function validate() {
         }
     }
     // Roll No validation
-    if (document.getElementById("rollNo").value == "") {
+    if (document.getElementById("area").value == "") {
         isValid = false;
         document.getElementById("rollNovalidationError").classList.remove("hide");
     } else {
@@ -112,7 +112,7 @@ function validate() {
         }
     }
     // Std class validation
-    if (document.getElementById("stdClass").value == "") {
+    if (document.getElementById("course").value == "") {
         isValid = false;
         document.getElementById("stdClassvalidationError").classList.remove("hide");
     } else {
@@ -123,7 +123,7 @@ function validate() {
         }
     }
     // Tsub validation
-    if (document.getElementById("tsub").value == "") {
+    if (document.getElementById("yop").value == "") {
         isValid = false;
         document.getElementById("tsubvalidationError").classList.remove("hide");
     } else {
